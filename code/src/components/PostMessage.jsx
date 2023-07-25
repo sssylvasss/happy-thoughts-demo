@@ -47,7 +47,7 @@ export const PostMessage = ({ newMessage, fetchPosts }) => {
       <form onSubmit={handleFormSubmit}>
         <textarea
           rows="3"
-          placeholder="Kittens?"
+          placeholder="'If music be the food of love, play on.' – William Shakespeare"
           value={newPost}
           onChange={(e) => setNewPost(e.target.value)}
         />
