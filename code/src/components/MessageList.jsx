@@ -1,4 +1,4 @@
-import { SingleMessage } from "./SingleMessage";
+import { SingleMessage } from "./SingleMessage"
 
 // This code does several things
 // 1: It creates the message wrapper called list-wrapper
@@ -19,5 +19,5 @@ export const MessageList = ({ messageList, fetchPosts }) => {
         />
       ))}
     </div>
-  );
-};
+  )
+}

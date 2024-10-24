@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 export const PostMessage = ({ newMessage, fetchPosts }) => {
-  const [newPost, setNewPost] = useState(""); // Initial state is an empty string
-  const [errorMessage, setErrorMessage] = useState(""); // Initial state is an empty string
+  const [newPost, setNewPost] = useState("") // Initial state is an empty string
+  const [errorMessage, setErrorMessage] = useState("") // Initial state is an empty string
 
   useEffect(() => {
     if (newPost.length >= 141) {
-      setErrorMessage("Your message is too long 😔");
+      setErrorMessage("Your message is too long")
     } else {
-      setErrorMessage("");
+      setErrorMessage("")
     }
-  }, [newPost]);
+  }, [newPost])
 
   // This function handles the API with method POST
   // It is called when the user submits the form below, clicking the submit button
   const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log("newPost onformsubmit:", newPost);
+    event.preventDefault()
+    console.log("newPost onformsubmit:", newPost)
     if (newPost.length <= 4) {
       setErrorMessage(
-        "Your message is too short, it needs at least 5 letters 😔"
-      );
+        "Your message is too short"
+      )
     } else {
       const options = {
         method: "POST",
@@ -28,26 +28,26 @@ export const PostMessage = ({ newMessage, fetchPosts }) => {
           message: `${newPost}`,
         }),
         headers: { "Content-Type": "application/json" },
-      };
+      }
 
-      // console.log('options:', options);
+      // console.log('options:', options)
       fetch("https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts", options)
         .then((response) => response.json())
         .then((data) => {
-          newMessage(data);
-          setNewPost("");
-          fetchPosts();
+          newMessage(data)
+          setNewPost("")
+          fetchPosts()
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
     }
-  };
+  }
   return (
     <div className="post-wrapper">
-      <h2>What is making you happy right now?</h2>
+      <p>What's making you happy right now?</p>
       <form onSubmit={handleFormSubmit}>
         <textarea
           rows="3"
-          placeholder="'If music be the food of love, play on.' – William Shakespeare"
+          placeholder="Write your happy thought here..."
           value={newPost}
           onChange={(e) => setNewPost(e.target.value)}
         />
@@ -62,15 +62,15 @@ export const PostMessage = ({ newMessage, fetchPosts }) => {
           id="submitPostBtn"
           aria-label="button for submiting your post"
         >
-          <span className="emoji" aria-label="heart emoji">
-            ❤️
-          </span>{" "}
-          Send Happy Thought{" "}
-          <span className="emoji" aria-label="heart emoji">
-            ❤️
+          <span className="emoji" aria-label="like button">
+            &#x2665;
+          </span>
+          Send Happy Thought 
+          <span className="emoji" aria-label="like button">
+            &#x2665;
           </span>
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
