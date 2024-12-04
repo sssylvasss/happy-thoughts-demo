@@ -20,7 +20,7 @@ export const SingleMessage = ({ singleMessage, fetchPosts }) => {
 
     // eslint-disable-next-line no-underscore-dangle
     fetch(
-      `https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts/${singleMessage._id}/like`,
+      `https://technigo-project-happy-thoughts-api-lpjc.onrender.com/thoughts/${singleMessage._id}/like`,
       options
     )
       .then((response) => response.json())

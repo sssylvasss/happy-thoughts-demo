@@ -31,7 +31,7 @@ export const PostMessage = ({ newMessage, fetchPosts }) => {
       }
 
       // console.log('options:', options)
-      fetch("https://happy-thoughts-ux7hkzgmwa-uc.a.run.app/thoughts", options)
+      fetch("https://technigo-project-happy-thoughts-api-lpjc.onrender.com/thoughts", options)
         .then((response) => response.json())
         .then((data) => {
           newMessage(data)
