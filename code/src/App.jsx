@@ -14,7 +14,7 @@ export const App = () => {
     // console.log(loading)
     // console.log(messageList)
     setLoading(true)
-    fetch("https://technigo-project-happy-thoughts-api-lpjc.onrender.com")
+    fetch("https://technigo-project-happy-thoughts-api-lpjc.onrender.com/thoughts")
       .then((res) => res.json())
       .then((data) => setMessageList(data))
       .catch((error) => console.error(error))
